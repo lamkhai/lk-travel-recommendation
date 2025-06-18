@@ -4,10 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LK Travel Recommendations</title>
+    <title>TravelBloom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-background-custom {
+            background-image: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            z-index: 0;
+        }
+
+        .hero-background-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content-z-index>*,
+        .social-icons>* {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
 
-<body>
+<body class="bg-[#121212] text-[#f8f9fa] min-h-screen relative font-['Segoe UI', Tahoma, Geneva, Verdana, sans-serif]">
+    <nav class="bg-[#0a0a0a] py-4 px-8 flex justify-between items-center shadow-lg sticky top-0 z-50 flex-wrap gap-4">
+        <div class="flex items-center gap-2.5">
+            <i class="fas fa-plane text-[#00c8ff] text-3xl"></i>
+            <h1 class="text-2xl">TravelBloom</h1>
+        </div>
+        <div class="flex gap-8 flex-wrap justify-center">
+            <a href="#"
+                class="text-[#f8f9fa] no-underline font-medium transition-colors relative py-2 hover:text-[#00c8ff]"
+                id="home-link">Home</a>
+            <a href="#"
+                class="text-[#f8f9fa] no-underline font-medium transition-colors relative py-2 hover:text-[#00c8ff]"
+                id="about-link">About Us</a>
+            <a href="#"
+                class="text-[#f8f9fa] no-underline font-medium transition-colors relative py-2 hover:text-[#00c8ff]"
+                id="contact-link">Contact Us</a>
+        </div>
+        <div class="flex gap-2.5 flex-wrap justify-center">
+            <input type="text" id="search-input" placeholder="Search destinations..."
+                class="px-4 py-2 border-none rounded-full bg-[#2d2d2d] text-[#f8f9fa] outline-none w-[200px] transition-all focus:ring-2 focus:ring-[#00c8ff] focus:border-transparent md:w-auto">
+            <button id="search-btn"
+                class="px-4 py-2 border-none rounded-full bg-[#00c8ff] text-[#121212] font-semibold cursor-pointer transition-all whitespace-nowrap hover:bg-[#ff6b6b] hover:-translate-y-0.5">
+                Search
+            </button>
+            <button id="reset-btn"
+                class="px-4 py-2 border-none rounded-full bg-[#00c8ff] text-[#121212] font-semibold cursor-pointer transition-all whitespace-nowrap hover:bg-[#ff6b6b] hover:-translate-y-0.5">
+                Reset
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section
+        class="home hero-background-custom min-h-[calc(100vh-80px)] flex flex-col justify-center items-center text-center px-8 hero-content-z-index"
+        id="home-page">
+        <h1 class="text-6xl md:text-5xl font-extrabold mb-4 leading-tight">Discover Your Next Adventure
+        </h1>
+        <p class="text-xl max-w-3xl mb-8 leading-relaxed text-[#f8f9fa]">TravelBloom helps you find the perfect
+            destinations tailored to your preferences. Whether you're looking for serene beaches, majestic temples, or
+            vibrant countries, we've got you covered with our expert recommendations.</p>
+        <button
+            class="explore-btn py-3 px-8 border-none rounded-full bg-gradient-to-r from-[#00c8ff] to-[#ff6b6b] text-[#121212] font-semibold text-lg cursor-pointer transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#00c8ff] focus:ring-opacity-75">
+            Explore Now
+        </button>
+        <div class="social-icons absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-6 hero-content-z-index">
+            <a href="#" class="text-[#f8f9fa] text-2xl transition-colors hover:text-[#00c8ff]"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="#" class="text-[#f8f9fa] text-2xl transition-colors hover:text-[#00c8ff]"><i
+                    class="fab fa-twitter"></i></a>
+            <a href="#" class="text-[#f8f9fa] text-2xl transition-colors hover:text-[#00c8ff]"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="#" class="text-[#f8f9fa] text-2xl transition-colors hover:text-[#00c8ff]"><i
+                    class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+
+    <!-- About Us Page -->
+    <section class="about hidden p-16 px-8 max-w-6xl mx-auto bg-[#121212]" id="about-page">
+        <h2 class="text-4xl mb-8 text-center text-[#00c8ff]">About TravelBloom</h2>
+        <p class="text-lg leading-relaxed mb-8 text-justify">TravelBloom was founded in 2018 with a simple mission: to
+            make travel planning effortless and enjoyable. Our team of travel enthusiasts and experts scours the globe
+            to bring you the most authentic and exciting travel experiences.</p>
+        <p class="text-lg leading-relaxed mb-8 text-justify">We believe that travel has the power to transform lives,
+            broaden perspectives, and create unforgettable memories. That's why we're committed to providing
+            personalized recommendations that match your unique travel style and preferences.</p>
+
+        <div class="mt-12">
+            <h3 class="text-3xl mb-8 text-center text-[#ff6b6b]">Meet Our Team</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div
+                    class="bg-[#2d2d2d] p-8 rounded-lg text-center transition-transform shadow-md hover:-translate-y-2.5">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson"
+                        class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-[#00c8ff] mx-auto">
+                    <h4 class="text-2xl mb-2 text-[#00c8ff]">Sarah Johnson</h4>
+                    <p class="text-base text-[#ff6b6b] font-medium">CEO & Founder</p>
+                </div>
+                <div
+                    class="bg-[#2d2d2d] p-8 rounded-lg text-center transition-transform shadow-md hover:-translate-y-2.5">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen"
+                        class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-[#00c8ff] mx-auto">
+                    <h4 class="text-2xl mb-2 text-[#00c8ff]">Michael Chen</h4>
+                    <p class="text-base text-[#ff6b6b] font-medium">Travel Expert</p>
+                </div>
+                <div
+                    class="bg-[#2d2d2d] p-8 rounded-lg text-center transition-transform shadow-md hover:-translate-y-2.5">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez"
+                        class="w-36 h-36 rounded-full object-cover mb-4 border-4 border-[#00c8ff] mx-auto">
+                    <h4 class="text-2xl mb-2 text-[#00c8ff]">Emma Rodriguez</h4>
+                    <p class="text-base text-[#ff6b6b] font-medium">Customer Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Page -->
+    <section class="contact hidden p-16 px-8 max-w-4xl mx-auto" id="contact-page">
+        <h2 class="text-4xl mb-8 text-center text-[#00c8ff]">Contact Us</h2>
+        <form class="bg-[#2d2d2d] p-8 rounded-lg" id="contact-form">
+            <div class="mb-6">
+                <label for="name" class="block mb-2 font-medium">Your Name</label>
+                <input type="text" id="name" name="name" required
+                    class="w-full p-3 border-none rounded bg-[#121212] text-[#f8f9fa] text-base focus:outline-none focus:ring-2 focus:ring-[#00c8ff] focus:border-transparent">
+            </div>
+            <div class="mb-6">
+                <label for="email" class="block mb-2 font-medium">Your Email</label>
+                <input type="email" id="email" name="email" required
+                    class="w-full p-3 border-none rounded bg-[#121212] text-[#f8f9fa] text-base focus:outline-none focus:ring-2 focus:ring-[#00c8ff] focus:border-transparent">
+            </div>
+            <div class="mb-6">
+                <label for="message" class="block mb-2 font-medium">Your Message</label>
+                <textarea id="message" name="message" required
+                    class="w-full p-3 border-none rounded bg-[#121212] text-[#f8f9fa] text-base min-h-36 resize-y focus:outline-none focus:ring-2 focus:ring-[#00c8ff] focus:border-transparent"></textarea>
+            </div>
+            <button type="submit"
+                class="py-3 px-8 border-none rounded bg-[#00c8ff] text-[#121212] font-semibold text-lg cursor-pointer transition-all hover:bg-[#ff6b6b]">
+                Send Message
+            </button>
+        </form>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations hidden p-16 px-8 max-w-6xl mx-auto" id="recommendations-page">
+        <h2 id="recommendations-title" class="text-4xl mb-8 text-center text-[#00c8ff]">Travel Recommendations</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="results-container">
+            <!-- Results will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] p-8 text-center mt-12">
+        <p class="text-[#f8f9fa]">&copy; 2023 TravelBloom. All rights reserved.</p>
+    </footer>
+
+    <script src="travel_recommendation.js"></script>
 </body>
 
 </html>
